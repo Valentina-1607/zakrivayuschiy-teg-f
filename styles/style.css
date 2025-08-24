@@ -24,7 +24,6 @@
 
 /* header */
 .header {
-  padding: clamp(375px, 100%, 1140px);
   font-family: var(--PressStart2P), sans-serif;
   margin-block-start: 100px;
   background-color: var(--header-color);
@@ -307,7 +306,6 @@ dialog[open] .dialog__text {
   font-family: var(--PressStart2P);
   font-weight: 400;
   font-size: 14px;
-  line-height: 90%;
   padding: 0;
   line-height: 150%;
 }
