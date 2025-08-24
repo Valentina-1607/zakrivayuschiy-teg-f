@@ -11,6 +11,337 @@
 */
 
 .page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--Inter), sans-serif;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  background-image: var(--cover-image);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* header */
+.header {
+  padding: clamp(375px, 100%, 1140px);
+  font-family: var(--PressStart2P), sans-serif;
+  margin-block-start: 100px;
+  background-color: var(--header-color);
+  border: var(--border);
+  width: var(--block-width);
+  text-align: center;
+  height: clamp(327px, 312.56px + 3.85vw, 368px);
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: clamp(122px, 119.18px + 0.75vw, 130px)
+    clamp(16px, -21.5px + 10vw, 122.5px);
+  margin-block-end: 100px;
+}
+
+.header__title {
+  font-size: clamp(49px, 43.37px + 1.5vw, 65px);
+  margin-block-end: 20px;
+}
+
+.header__text {
+  font-size: clamp(14px, 10.83px + 0.85vw, 23px);
+}
+
+/* main */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: var(--block-width);
+  background-color: var(--header-color);
+}
+
+.card__item {
+  margin-block-end: 50px;
+  border: var(--border);
+}
+
+.card__title {
+  font-size: 18px;
+  font-variation-settings: "wght" var(--font-title);
+  padding: 6px 10px 4px 10px;
+}
+
+.card__block-img {
+  position: relative;
+}
+
+.card__img {
+  width: 100%;
+  min-height: clamp(371px, 256.56px + 30.52vw, 696px);
+}
+
+.img__card-plenty {
+  filter: brightness(95%) contrast(110%) hue-rotate(200deg) saturate(85%);
+}
+
+.img__card-brightness {
+  filter: brightness(150%);
+}
+
+.img__card-warm {
+  filter: sepia(30%) brightness(105%) hue-rotate(-20deg) saturate(120%);
+}
+
+.img__card-invert {
+  filter: invert(100%);
+}
+
+.img__card-night {
+  filter: brightness(80%) contrast(120%) hue-rotate(180deg) invert(10%);
+}
+
+.img__card-saturate {
+  filter: saturate(185%);
+}
+
+.img__card-gray {
+  filter: grayscale(100%);
+}
+
+.img__card-hue {
+  filter: hue-rotate(50deg);
+}
+
+.img__text {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-family: var(--PressStart2P);
+  font-size: 14px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  text-shadow: -1px 0 var(--text-shadow), 0 1px var(--text-shadow),
+    1px 0 var(--text-shadow), 0 -1px var(--text-shadow);
+}
+
+@supports (
+  (text-stroke: 1px var(--text-shadow)) or
+    (-webkit-text-stroke: 1px var(--text-shadow))
+) {
+  .img__text {
+    -webkit-text-stroke: 1px var(--text-shadow);
+    text-stroke: 1px var(--text-shadow);
+    text-shadow: none;
+  }
+}
+
+.card__block {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 21px 25px;
+}
+
+.card__text {
+  font-size: 18px;
+  font-variation-settings: "wght" var(--font-text), "wdth" var(--stretch-text);
+}
+
+.card__button {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  margin: 6px 25px 26px;
+  gap: 7px;
+}
+
+.card__like-button {
+  text-align: center;
+  width: 130px;
+  height: 38px;
+}
+
+.block__save {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-block-end: 100px;
+  padding: 15px 12px;
+  margin-block-start: 1px;
+}
+
+.button {
+  position: relative;
+  outline: var(--border);
+  transition: box-shadow 0.3s ease;
+  font-family: var(--PressStart2P);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 90%;
+  background-color: var(--header-color);
+}
+
+.floppy {
+  position: relative;
+  z-index: 2;
+  color: var(--header-color);
+  mix-blend-mode: difference;
+  margin-block-end: 7px;
+}
+
+.like-icon__button {
+  transition: outline 0.3s ease;
+}
+
+.like-icon {
+  transform-origin: center;
+}
+
+.like-icon.is-liked .heart {
+  animation: scaleHeart 0.3s ease-in 0.1s 1 normal forwards;
+}
+
+.contour {
+  transition: fill 0.1s linear;
+}
+
+.like-icon.is-liked .contour,
+.like-icon.is-liked .main-body,
+.like-icon.is-liked .core {
+  fill: var(--animation-fill-color);
+  transition-duration: 0.3s;
+  transition-delay: 0.06s;
+}
+
+.core {
+  transition: fill 0.3s linear 0.03s;
+}
+
+.like-icon:hover .core {
+  fill: var(--contour-color);
+  transition-delay: 0;
+}
+
+.like-icon:active .core {
+  fill: var(--animation-fill-color);
+  transition-delay: 0;
+}
+
+.main-body {
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--contour-color);
+  transition-delay: 0.05s;
+}
+
+.like-icon:active .main-body {
+  fill: var(--animation-fill-color);
+  transition-delay: 0.05s;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparkFlash 0.3s ease-in 0.3s 1 normal forwards;
+}
+
+.like-icon__button:focus {
+  outline: none;
+}
+
+.like-icon__button:focus-visible {
+  outline: 2px solid var(--acent-color);
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 1px var(--acent-color);
+}
+
+.button__text {
+  position: relative;
+  z-index: 2;
+  color: var(--header-color);
+  mix-blend-mode: difference;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--acent-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+  z-index: 1;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+#dialog-id {
+  border: var(--border);
+  text-align: center;
+  padding: 30px 30px;
+}
+
+dialog[open] .dialog__block {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-block-end: 30px;
+}
+
+dialog[open] .floppy {
+  width: 87px;
+  height: 39px;
+}
+
+dialog[open] .dialog__text {
+  font-family: var(--PressStart2P);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 90%;
+  padding: 0;
+  line-height: 150%;
+}
+
+dialog[open] .dialog-close {
+  padding: 12.5px 116.5px;
+}
+
+#dialog-id::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+@media (width > 375px) {
+  .header {
+    margin-block-end: 98px;
+  }
+
+  .card__block {
+    padding: 17px 25px 22px;
+  }
+
+  .block__save {
+    flex-direction: row;
+    padding: 8px 13px;
+  }
+
+  .floppy {
+    width: 23px;
+    height: 25px;
+    margin-inline-start: 4px;
+  }
+
+  #dialog-id {
+    width: 353px;
+    height: 200px;
+  }
 }
