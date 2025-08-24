@@ -24,16 +24,15 @@
 
 /* header */
 .header {
-  font-family: var(--PressStart2P), sans-serif;
+  font-family: var(--PressStart2P), fantasy;
   margin-block-start: 100px;
   background-color: var(--header-color);
   border: var(--border);
   width: var(--block-width);
   text-align: center;
-  height: clamp(327px, 312.56px + 3.85vw, 368px);
   font-weight: 400;
   text-transform: uppercase;
-  padding: clamp(122px, 119.18px + 0.75vw, 130px)
+  padding: clamp(120px, 116.48px + 0.94vw, 130px)
     clamp(16px, -21.5px + 10vw, 122.5px);
   margin-block-end: 100px;
 }
@@ -53,12 +52,12 @@
   flex-direction: column;
   align-items: center;
   width: var(--block-width);
-  background-color: var(--header-color);
 }
 
 .card__item {
   margin-block-end: 50px;
   border: var(--border);
+  background-color: var(--header-color);
 }
 
 .card__title {
@@ -76,35 +75,35 @@
   min-height: clamp(371px, 256.56px + 30.52vw, 696px);
 }
 
-.img__card-plenty {
+.img__plenty-filters {
   filter: brightness(95%) contrast(110%) hue-rotate(200deg) saturate(85%);
 }
 
-.img__card-brightness {
+.img__brightness-filter {
   filter: brightness(150%);
 }
 
-.img__card-warm {
+.img__warm-filter {
   filter: sepia(30%) brightness(105%) hue-rotate(-20deg) saturate(120%);
 }
 
-.img__card-invert {
+.img__invert-filter {
   filter: invert(100%);
 }
 
-.img__card-night {
+.img__night-filter {
   filter: brightness(80%) contrast(120%) hue-rotate(180deg) invert(10%);
 }
 
-.img__card-saturate {
+.img__saturate-filter {
   filter: saturate(185%);
 }
 
-.img__card-gray {
+.img__gray-filter {
   filter: grayscale(100%);
 }
 
-.img__card-hue {
+.img__hue-filter {
   filter: hue-rotate(50deg);
 }
 
@@ -112,7 +111,7 @@
   position: absolute;
   top: 25px;
   right: 25px;
-  font-family: var(--PressStart2P);
+  font-family: var(--PressStart2P), fantasy;
   font-size: 14px;
   text-transform: uppercase;
   opacity: 0.5;
@@ -141,21 +140,21 @@
 
 .card__text {
   font-size: 18px;
-  font-variation-settings: "wght" var(--font-text), "wdth" var(--stretch-text);
+  font-variation-settings: "wght" var(--font-text);
 }
 
 .card__button {
   display: flex;
   flex-wrap: wrap;
   justify-content: end;
-  margin: 6px 25px 26px;
   gap: 7px;
+  margin: 6px 26px 20px;
 }
 
 .card__like-button {
   text-align: center;
-  width: 130px;
-  height: 38px;
+  width: 128px;
+  height: 34px;
 }
 
 .block__save {
@@ -164,7 +163,7 @@
   justify-content: center;
   align-items: center;
   margin-block-end: 100px;
-  padding: 15px 12px;
+  padding: 16px 12px;
   margin-block-start: 1px;
 }
 
@@ -172,7 +171,7 @@
   position: relative;
   outline: var(--border);
   transition: box-shadow 0.3s ease;
-  font-family: var(--PressStart2P);
+  font-family: var(--PressStart2P), fantasy;
   font-weight: 400;
   font-size: 14px;
   line-height: 90%;
@@ -188,30 +187,37 @@
 }
 
 .like-icon__button {
+  padding: 0;
   transition: outline 0.3s ease;
 }
 
-.like-icon {
-  transform-origin: center;
-}
-
 .like-icon.is-liked .heart {
-  animation: scaleHeart 0.3s ease-in 0.1s 1 normal forwards;
+  transform-origin: center;
+  animation: scaleHeart 0.3s ease-in 0.1s 1 normal;
 }
 
 .contour {
   transition: fill 0.1s linear;
 }
 
-.like-icon.is-liked .contour,
-.like-icon.is-liked .main-body,
 .like-icon.is-liked .core {
+  fill: var(--animation-fill-color);
+  transition-delay: 0;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color);
+  transition-delay: 0.05s;
+}
+
+.like-icon.is-liked .contour {
   fill: var(--animation-fill-color);
   transition-duration: 0.3s;
   transition-delay: 0.06s;
 }
 
 .core {
+  fill: transparent;
   transition: fill 0.3s linear 0.03s;
 }
 
@@ -226,6 +232,7 @@
 }
 
 .main-body {
+  fill: transparent;
   transition: fill 0.3s linear;
 }
 
@@ -244,7 +251,7 @@
 }
 
 .like-icon.is-liked .sparks {
-  animation: sparkFlash 0.3s ease-in 0.3s 1 normal forwards;
+  animation: sparkFlash 0.3s ease-in 0.3s 1 normal;
 }
 
 .like-icon__button:focus {
@@ -252,6 +259,7 @@
 }
 
 .like-icon__button:focus-visible {
+  height: 34px;
   outline: 2px solid var(--acent-color);
 }
 
@@ -302,10 +310,16 @@ dialog[open] .floppy {
   height: 39px;
 }
 
+dialog[open] .button__text {
+  text-transform: uppercase;
+}
+
 dialog[open] .dialog__text {
-  font-family: var(--PressStart2P);
+  font-family: var(--PressStart2P), fantasy;
   font-weight: 400;
   font-size: 14px;
+  text-transform: uppercase;
+  text-align: left;
   padding: 0;
   line-height: 150%;
 }
@@ -336,10 +350,5 @@ dialog[open] .dialog-close {
     width: 23px;
     height: 25px;
     margin-inline-start: 4px;
-  }
-
-  #dialog-id {
-    width: 353px;
-    height: 200px;
   }
 }
