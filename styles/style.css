@@ -75,35 +75,35 @@
   min-height: clamp(371px, 256.56px + 30.52vw, 696px);
 }
 
-.img__plenty-filters {
+.img-filter--complex-cool {
   filter: brightness(95%) contrast(110%) hue-rotate(200deg) saturate(85%);
 }
 
-.img__brightness-filter {
+.img-filter--brightness-high {
   filter: brightness(150%);
 }
 
-.img__warm-filter {
+.img--warm-vintage {
   filter: sepia(30%) brightness(105%) hue-rotate(-20deg) saturate(120%);
 }
 
-.img__invert-filter {
+.img-filter--invert-full {
   filter: invert(100%);
 }
 
-.img__night-filter {
+.img--night-mode {
   filter: brightness(80%) contrast(120%) hue-rotate(180deg) invert(10%);
 }
 
-.img__saturate-filter {
+.img-filter--saturate-high {
   filter: saturate(185%);
 }
 
-.img__gray-filter {
+.img-filter--grayscale-full {
   filter: grayscale(100%);
 }
 
-.img__hue-filter {
+.img--hue-shifted {
   filter: hue-rotate(50deg);
 }
 
@@ -187,6 +187,7 @@
 }
 
 .like-icon__button {
+  height: 34px;
   padding: 0;
   transition: outline 0.3s ease;
 }
@@ -259,7 +260,6 @@
 }
 
 .like-icon__button:focus-visible {
-  height: 34px;
   outline: 2px solid var(--acent-color);
 }
 
@@ -350,5 +350,9 @@ dialog[open] .dialog-close {
     width: 23px;
     height: 25px;
     margin-inline-start: 4px;
+  }
+
+  #dialog-id {
+    width: 353px;
   }
 }
